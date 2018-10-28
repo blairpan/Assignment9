@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment9</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+	<script>
+		var questions = ["Where does Halloween come from?", "Before people used pumpkins, what were Jack O' Lanterns made out of?","Which of these would be most useful if a werewolf attacked you?"];
+		var answersA = ["An ancient festival to celebrate the dead", "Turnips","A gun with silver bullets in"];
+		var answersB = ["The start of pumpkin season", "Potatoes","A stick"];
+		var answersC = ["Father Christmas' birthday", "Onions","A box to hide in"];
+
+		var totalScore = 0;
+	</script>
+</head>
+
+
+
+<body>
+	<div>
+	<h1>Halloween Quiz!!</h1>
+	<p>Just trying to ruin the holiday! Press any key to start the quiz! Choose answer by clicking the buttons!</p>
+	<h3>Total Score: <span id="score"></span></h2>
+
+
+	<h2 id="question"></h3>
+
+	<button id="A"></button>
+	<button id="B"></button>
+	<button id="C"></button>
+
+	<h4 id="theanswer"></h4>
+
+	<script>
+		var questionCounter = 0;
+		document.addEventListener("keypress", function(event) {
+			setUpQuestions();
+		});
+
+		document.getElementById("A").addEventListener("click", function(event) {
+			document.getElementById("theanswer").innerHTML = "Yeah!";
+			totalScore += 1;
+			questionCounter += 1;
+			setUpQuestions();
+		});
+
+		document.getElementById("B").addEventListener("click", function(event) {
+			document.getElementById("theanswer").innerHTML = "wah-wah wrong answer";
+			questionCounter += 1;
+			setUpQuestions();
+		});
+
+		document.getElementById("C").addEventListener("click", function(event) {
+			document.getElementById("theanswer").innerHTML = "wah-wah wrong answer";
+			questionCounter += 1;
+			setUpQuestions();
+		});
+
+
+		function setUpQuestions() {
+			document.getElementById('question').innerHTML = questions[questionCounter];
+
+			document.getElementById('A').innerHTML = answersA[questionCounter];
+			document.getElementById('B').innerHTML = answersB[questionCounter];
+			document.getElementById('C').innerHTML = answersC[questionCounter];
+			document.getElementById("score").innerHTML = totalScore;
+		}
+
+		var alpha = 0.1;
+
+		document.addEventListener("click",function(event){
+			console.log(event);
+
+			var divs = document.getElementsByTagName("div");
+
+			for(var i=0; i<divs.length; i++){
+			divs[i].style.background = 'rgba( 255, 140, 0, '+ alpha +')';
+
+		}
+		alpha +=0.4;
+			});
+		
+	</script>
+</div>
+</body>
+</html>
